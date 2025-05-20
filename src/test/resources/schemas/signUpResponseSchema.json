@@ -1,0 +1,11 @@
+{
+  "title" : "User Success Registration",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": ["message"],
+  "additionalProperties": false
+}

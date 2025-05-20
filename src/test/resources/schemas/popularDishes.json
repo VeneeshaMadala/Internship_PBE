@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Popular Dishes Response Schema",
+  "type": "object",
+  "required": ["description", "dishes"],
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "dishes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "price", "weight", "imageUrl", "isPopular", "isSpeciality"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "weight": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "isPopular": {
+            "type": "boolean"
+          },
+          "isSpeciality": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

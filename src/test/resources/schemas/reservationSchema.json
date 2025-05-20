@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "description": "The reservation date in YYYY-MM-DD format",
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$",
+      "examples": ["2025-04-30"]
+    },
+    "timeSlot": {
+      "type": "string",
+      "description": "The time range for the reservation in HH:mm - HH:mm format",
+      "pattern": "^\\d{2}:\\d{2} - \\d{2}:\\d{2}$",
+      "examples": ["14:00 - 15:00"]
+    },
+    "bookedByWaiter": {
+      "type": "boolean",
+      "description": "Indicates whether the booking was made by a waiter",
+      "examples": [true, false]
+    },
+    "waiterName": {
+      "type": "string",
+      "description": "The name of the waiter who made the booking",
+      "examples": ["Rock"]
+    },
+    "waiterId": {
+      "type": "string",
+      "description": "The unique identifier of the waiter in UUID format",
+      "format": "uuid",
+      "examples": ["56f25214-00f1-7007-3d9e-b1e48d1d2001"]
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the reservation in UUID format",
+      "format": "uuid",
+      "examples": ["2c34d09b-1df7-40d8-af4c-999f1b377d76"]
+    },
+    "locationAddress": {
+      "type": "string",
+      "description": "The address of the reservation location",
+      "examples": ["51 Rustaveli Avenue, Patna"]
+    },
+    "guestsNumber": {
+      "type": "string",
+      "description": "The number of guests for the reservation",
+      "pattern": "^[1-9]\\d*$",
+      "examples": ["4"]
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the reservation",
+      "enum": ["Confirmed", "in-progress", "Cancelled"],
+      "examples": ["Confirmed"]
+    }
+  },
+  "required": [
+    "date",
+    "timeSlot",
+    "bookedByWaiter",
+    "waiterName",
+    "waiterId",
+    "id",
+    "locationAddress",
+    "guestsNumber",
+    "status"
+  ]
+}

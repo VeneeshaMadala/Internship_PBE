@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": ["error", "message"],
+  "properties": {
+    "error": { "type": "boolean", "const": true },
+    "message": { "type": "string" }
+  }
+}

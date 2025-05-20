@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PaginatedReviewsResponse",
+  "type": "object",
+  "required": [
+    "totalPages",
+    "totalElements",
+    "size",
+    "content",
+    "number",
+    "first",
+    "last",
+    "numberOfElements",
+    "empty"
+  ],
+  "properties": {
+    "totalPages": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "totalElements": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "size": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "first": {
+      "type": "boolean"
+    },
+    "last": {
+      "type": "boolean"
+    },
+    "numberOfElements": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "empty": {
+      "type": "boolean"
+    },
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "rate",
+          "comment",
+          "userName",
+          "userAvatarUrl",
+          "date",
+          "type",
+          "locationId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rate": {
+            "type": "string",
+            "pattern": "^[0-9](\\.\\d)?$"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "userAvatarUrl": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["SERVICE_QUALITY", "CUISINE_EXPERIENCE"]
+          },
+          "locationId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

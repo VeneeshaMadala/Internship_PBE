@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "locationId": {
+        "type": "string",
+        "description": "Unique identifier for the location"
+      },
+      "locationAddress": {
+        "type": "string",
+        "description": "Address of the location"
+      },
+      "tableNumber": {
+        "type": "string",
+        "description": "Table number at the location"
+      },
+      "capacity": {
+        "type": "string",
+        "description": "Maximum seating capacity of the table"
+      },
+      "availableSlots": {
+        "type": "object",
+        "description": "Available time slots for reservation grouped by date",
+        "additionalProperties": {
+          "type": "array",
+          "description": "Array of available times as strings",
+          "items": {
+            "type": "string",
+            "description": "Time slot in HH:mm format or HH:mm - HH:mm range",
+            "pattern": "^\\d{2}:\\d{2}$|^\\d{2}:\\d{2} - \\d{2}:\\d{2}$"
+          }
+        }
+      }
+    },
+    "required": [
+      "locationId",
+      "locationAddress",
+      "tableNumber",
+      "capacity",
+      "availableSlots"
+    ]
+  }
+}

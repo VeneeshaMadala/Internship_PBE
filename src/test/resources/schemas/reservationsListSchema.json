@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "description": "The reservation date in YYYY-MM-DD format",
+        "pattern": "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$",
+        "examples": ["2025-04-30"]
+      },
+      "timeSlot": {
+        "type": "string",
+        "description": "The reservation time range in HH:mm - HH:mm format",
+        "pattern": "^\\d{2}:\\d{2} - \\d{2}:\\d{2}$",
+        "examples": ["14:00 - 15:00"]
+      },
+      "bookedByWaiter": {
+        "type": "boolean",
+        "description": "Indicates whether the waiter booked the reservation",
+        "examples": [false]
+      },
+      "locationAddress": {
+        "type": "string",
+        "description": "The address of the reservation's location",
+        "examples": ["51 Rustaveli Avenue, Patna"]
+      },
+      "userId": {
+        "type": "string",
+        "description": "The unique identifier of the user making the reservation in UUID format",
+        "format": "uuid",
+        "examples": ["c6322204-f0f1-70a6-f469-c87169c39d7a"]
+      },
+      "guestsNumber": {
+        "type": "string",
+        "description": "The number of guests for the reservation",
+        "pattern": "^[1-9]\\d*$",
+        "examples": ["4"]
+      },
+      "tableNumber": {
+        "type": "string",
+        "description": "The table number for the reservation",
+        "pattern": "^[1-9][0-9]*$",
+        "examples": ["1"]
+      },
+      "locationId": {
+        "type": "string",
+        "description": "The unique identifier for the reservation's location",
+        "examples": ["loc-051"]
+      },
+      "waiterId": {
+        "type": "string",
+        "description": "The unique identifier of the waiter in UUID format",
+        "format": "uuid",
+        "examples": ["56f25214-00f1-7007-3d9e-b1e48d1d2001"]
+      },
+      "id": {
+        "type": "string",
+        "description": "The unique identifier of the reservation in UUID format",
+        "format": "uuid",
+        "examples": ["196618a6-8f7c-4be0-8bef-feddac771587"]
+      },
+      "status": {
+        "type": "string",
+        "description": "The current status of the reservation",
+        "enum": ["Confirmed", "Cancelled", "in-progress"],
+        "examples": ["Cancelled"]
+      }
+    },
+    "required": [
+      "date",
+      "timeSlot",
+      "bookedByWaiter",
+      "locationAddress",
+      "userId",
+      "guestsNumber",
+      "tableNumber",
+      "locationId",
+      "waiterId",
+      "id",
+      "status"
+    ]
+  }
+}

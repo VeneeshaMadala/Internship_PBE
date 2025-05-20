@@ -1,0 +1,18 @@
+{
+  "title": "Login Success Schema",
+  "type": "object",
+  "required": ["accessToken", "username", "role"],
+  "properties": {
+    "accessToken": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["customer", "admin", "waiter"]
+    }
+  },
+  "additionalProperties": false
+}
